@@ -1,8 +1,8 @@
 #!/bin/bash
-# Version             0.3.0
-# Date                19.04.2024
+# Version             0.1.0
+# Date                30.08.25
 # Author              DerDanilo
-# Contributors    aboutte, xmirakulix, bootsie123, phidauex
+# Contributors    aboutte, xmirakulix, bootsie123, phidauex, aroun01
 
 ###########################
 # Configuration Variables #
@@ -10,7 +10,7 @@
 
 # Permanent backups directory
 # Default value can be overridden by setting environment variable before running prox_config_backup.sh
-#   example: export BACK_DIR="/mnt/pve/media/backup"
+#   example: export BACK_DIR="/mnt/pve/backup"
 #   or
 #   example: BACK_DIR="." ./prox_config_backup.sh
 DEFAULT_BACK_DIR="/mnt/pve/pve-backup"
@@ -105,12 +105,13 @@ function description {
         your instances.
 
         For questions or suggestions please contact me at
-        https://github.com/DerDanilo/proxmox-stuff
+        https://github.com/aroun01/proxmox-backup-server/
         -----------------------------------------------------------------
 
         Hit return to proceed or CTRL-C to abort.
 EOF
-        read dummy
+        echo "Sleep 5 and continue"
+        sleep 5
         clear
     fi
 }
