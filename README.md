@@ -31,13 +31,13 @@
 
 Измените ```DEFAULT_BACK_DIR="/mnt/pve/truenas_backup/pve"``` и ```MAX_BACKUPS=5``` привидите к желаемым значениям!
 
-Необязательно: выполните `run-parts` , чтобы проверить наличие ошибок:
+Необязательно: выполните [run-parts](https://superuser.com/questions/402781/what-is-run-parts-in-etc-crontab-and-how-do-i-use-it) , чтобы проверить наличие ошибок:
 
-`run-parts -v --test /etc/cron.monthly`
+```run-parts -v --test /etc/cron.monthly```
 
 ## Вручную
 
-На моём компьютере в результате получается сжатый GZIP-файл размером около 1–5 МБ с именем типа «proxmox_backup_proxmoxhostname_2017-12-02.15.48.10.tar.gz».
+На моём компьютере в результате получается сжатый GZIP-файл размером около 1–5 МБ с именем типа ```proxmox_backup_proxmoxhostname_2017-12-02.15.48.10.tar.gz```.
 В зависимости от вашего графика и размера сервера, это может со временем стать проблемой, поэтому не
 забудьте настроить обслуживание архива.
 
