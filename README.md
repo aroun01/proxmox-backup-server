@@ -75,4 +75,5 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 
 ## Источники
 https://github.com/aroun01/proxmox-stuff
+
 http://ziemecki.net/content/proxmox-config-backups
