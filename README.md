@@ -4,12 +4,12 @@
 
 
 ## Резервное копирование
-* Скачать [сценарий](https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh)
-```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh```
+* Скачать [сценарий](https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh.sh)
+```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh.sh```
 * Установите переменную окружения постоянного каталога резервных копий ```export BACK_DIR="/path/to/backup/directory"``` или отредактируйте скрипт, чтобы задать ```$DEFAULT_BACK_DIR``` переменную для предпочитаемого вами каталога резервных копий.
-* Сделайте скрипт исполняемым ```chmod +x ./prox_config_backup.sh```
+* Сделайте скрипт исполняемым ```chmod +x ./prox_config_backup.sh.sh```
 * Если вы хотите действовать безопасно, отключите ВСЕ виртуальные машины и контейнеры LXC. (Не обязательно)
-* Запустить скрипт ```bash prox_config_backup.sh```
+* Запустить скрипт ```bash prox_config_backup.sh.sh```
 
 ## Уведомление
 
@@ -25,9 +25,9 @@
 
 # Bash-скрипты
 ## Cron
-Чтобы настроить автоматическое задание cron по ежемесячному ( ```/etc/cron.weekly``` or ```/etc/cron.daily``` обычному) графику, запустив скрипт `prox_config_backup` , выполните следующие действия:
+Чтобы настроить автоматическое задание cron по ежемесячному ( ```/etc/cron.weekly``` or ```/etc/cron.daily``` обычному) графику, запустив скрипт `prox_config_backup.sh` , выполните следующие действия:
 
-```wget https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh -O /etc/cron.monthly/prox_config_backup```
+```wget https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh.sh -O /etc/cron.monthly/prox_config_backup.sh```
 
 Измените ```DEFAULT_BACK_DIR="/mnt/pve/truenas_backup/pve"``` и ```MAX_BACKUPS=5``` привидите к желаемым значениям!
 
