@@ -1,7 +1,7 @@
 #!/bin/bash
-# Version	      0.3.0
-# Date		      19.04.2024
-# Author 	      DerDanilo 
+# Version             0.3.0
+# Date                19.04.2024
+# Author              DerDanilo
 # Contributors    aboutte, xmirakulix, bootsie123, phidauex
 
 ###########################
@@ -143,8 +143,8 @@ function copyfilesystem {
     if [ "$(ls -A /usr/local/bin 2>/dev/null)" ]; then tar --warning='no-file-ignored' -cvPf "$_filename8" /usr/local/bin/.; fi
 
     if [ "$(ls /usr/share/kvm/*.vbios 2>/dev/null)" != "" ] ; then
-	echo backing up custom video bios...
-	tar --warning='no-file-ignored' -cvPf "$_filename5" /usr/share/kvm/*.vbios
+        echo backing up custom video bios...
+        tar --warning='no-file-ignored' -cvPf "$_filename5" /usr/share/kvm/*.vbios
     fi
     # copy installed packages list
     echo "Copying installed packages list from APT"
