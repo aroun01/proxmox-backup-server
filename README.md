@@ -1,11 +1,11 @@
 # Script for backup PVE/PBS server
 
-Скрипты позаимствованы с [этого](https://github.com/DerDanilo/proxmox-stuff) репозитария и доведены до ума
+Скрипты позаимствованы с [этого](https://github.com/aroun01/proxmox-stuff) репозитария и доведены до ума
 
 
 ## Резервное копирование
-* Скачать [сценарий](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
-```cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh```
+* Скачать [сценарий](https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh)
+```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh```
 * Установите переменную окружения постоянного каталога резервных копий ```export BACK_DIR="/path/to/backup/directory"``` или отредактируйте скрипт, чтобы задать ```$DEFAULT_BACK_DIR``` переменную для предпочитаемого вами каталога резервных копий.
 * Сделайте скрипт исполняемым ```chmod +x ./prox_config_backup.sh```
 * Если вы хотите действовать безопасно, отключите ВСЕ виртуальные машины и контейнеры LXC. (Не обязательно)
@@ -27,7 +27,7 @@
 ## Cron
 Чтобы настроить автоматическое задание cron по ежемесячному ( ```/etc/cron.weekly``` or ```/etc/cron.daily``` обычному) графику, запустив скрипт `prox_config_backup` , выполните следующие действия:
 
-```wget https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh -O /etc/cron.monthly/prox_config_backup```
+```wget https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh -O /etc/cron.monthly/prox_config_backup```
 
 Измените ```DEFAULT_BACK_DIR="/mnt/pve/truenas_backup/pve"``` и ```MAX_BACKUPS=5``` привидите к желаемым значениям!
 
@@ -68,11 +68,11 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 
 ### Скрипт 
 
-* Скачать  [сценарий](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_restore.sh)  
-* ```cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_restore.sh```
+* Скачать  [сценарий](https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_restore.sh)  
+* ```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_restore.sh```
 * Сделайте скрипт исполняемым ```chmod +x ./prox_config_restore.sh```
 * Запустить скрипт ```bash /prox_config_restore.sh proxmox_backup_proxmoxhostname_2017-12-02.15.48.10.tar.gz```
 
 ## Источники
-https://github.com/DerDanilo/proxmox-stuff
+https://github.com/aroun01/proxmox-stuff
 http://ziemecki.net/content/proxmox-config-backups
