@@ -4,12 +4,13 @@
 
 
 ## Резервное копирование
-* Скачать [сценарий](https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh.sh)
+* Желательно расположить содержимое репы в /opt/proxmox-backup-server/
 ```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_backup.sh.sh```
 * Установите переменную окружения постоянного каталога резервных копий ```export BACK_DIR="/path/to/backup/directory"``` или отредактируйте скрипт, чтобы задать ```$DEFAULT_BACK_DIR``` переменную для предпочитаемого вами каталога резервных копий.
 * Сделайте скрипт исполняемым ```chmod +x ./prox_config_backup.sh.sh```
 * Если вы хотите действовать безопасно, отключите ВСЕ виртуальные машины и контейнеры LXC. (Не обязательно)
 * Запустить скрипт ```bash prox_config_backup.sh```
+
 
 ## Уведомление
 
@@ -72,6 +73,13 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 * ```cd /root/; wget -qO- https://raw.githubusercontent.com/aroun01/proxmox-stuff/master/prox_config_restore.sh```
 * Сделайте скрипт исполняемым ```chmod +x ./prox_config_restore.sh```
 * Запустить скрипт ```bash /prox_config_restore.sh proxmox_backup_proxmoxhostname_2017-12-02.15.48.10.tar.gz```
+
+Бэкап хоста (заливание в pbs архивов созданных выше)
+
+
+* Перемещаем файл расписания prox_config_backup_host_cron в /etc/cron.daily/
+* Задаем права на выполнение chmod +x /opt/proxmox-backup-server/prox_config_backup_host.sh
+* Выставляем в нем нужную частоту бэкапа, по умолчанию каждые 1 минута чтобы убедиться что скрипт работает
 
 ## Источники
 https://github.com/aroun01/proxmox-stuff
