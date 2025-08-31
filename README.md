@@ -77,7 +77,8 @@ for i in qemu-server vz pvedaemon pve-cluster; do systemctl start $i ; done
 Бэкап хоста (заливание в pbs архивов созданных выше)
 
 
-* Перемещаем файл расписания prox_config_backup_host_cron в /etc/cron.daily/
+* Создаем файл расписания /etc/cron.daily/prox_config_backup_host.sh по следующим содержимым
+  ```*/5 * * * * root /opt/proxmox-backup-server/prox_config_backup_host.sh```
 * Задаем права на выполнение chmod +x /opt/proxmox-backup-server/prox_config_backup_host.sh
 * Выставляем в нем нужную частоту бэкапа, по умолчанию каждые 1 минута чтобы убедиться что скрипт работает
 
